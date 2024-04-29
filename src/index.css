@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1;
+  }
+}
+@layer components {
+  .bg-gradient-gray-purple-sky {
+    background-image: linear-gradient(
+      to bottom right,
+      #111827,
+      #581c87e6 50%,
+      #0c4a6e
+    );
+  }
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "InterVariable", sans-serif;
+  }
+}
