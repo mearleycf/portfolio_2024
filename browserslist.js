@@ -1,5 +1,5 @@
 import browserslist from "browserslist";
-// import fs from "node:fs/promises";
+import fs from "node:fs/promises";
 
 const supportedBrowsers = browserslist();
 
@@ -28,19 +28,19 @@ export const mapBrowsersToEsbuilldTargets = (browsers) => {
  
  */
 
-// const esbuildTargets = mapBrowsersToEsbuilldTargets(supportedBrowsers);
+const esbuildTargets = mapBrowsersToEsbuilldTargets(supportedBrowsers);
 
-// async function writeTargetsToFile(targets) {
-//   try {
-//     const data = JSON.stringify(targets, null, 2);
-//     await fs.writeFile("esbuild-targets.json", data);
-//     console.log("esbuild targets written to esbuild-targets.json");
-//   } catch (error) {
-//     console.error("Error writing esbuild targets to file", error);
-//   }
-// }
+async function writeTargetsToFile(targets) {
+  try {
+    const data = JSON.stringify(targets, null, 2);
+    await fs.writeFile("esbuild-targets.json", data);
+    console.log("esbuild targets written to esbuild-targets.json");
+  } catch (error) {
+    console.error("Error writing esbuild targets to file", error);
+  }
+}
 
-// writeTargetsToFile(esbuildTargets).catch((e) => {
-//   console.error(e);
-//   process.exit(1);
-// });
+writeTargetsToFile(esbuildTargets).catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
